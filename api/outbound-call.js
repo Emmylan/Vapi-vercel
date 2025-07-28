@@ -1,6 +1,8 @@
 export const config = { api: { bodyParser: true } };
 
 export default async function handler(req, res) {
+  console.log('Request body:', JSON.stringify(req.body, null, 2));
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -33,11 +35,10 @@ export default async function handler(req, res) {
               message: "Please hold while I connect you."
             }
           }
-        }
+ }
       }
    ]
   };
 
   return res.status(200).json(responsePayload);
 }
-
